@@ -3,6 +3,23 @@ Self-Driving Car Engineer Nanodegree Program
 
 ---
 
+## Describes the effect of the P, I, D component of the PID algorithm
+PID stands for Proportional, Integral and Derivative Terms. The PID-Controller can be further subdivided into the P-Controller, I-Controller and D-Controller, which can be used separately or as a group to achieve the specific goals depending on the target system.
+
+The P-Controller outputs a correction based uniquely on the amplitude of the input signal. The larger the input signal the more aggresively the P-Controller tries to compensate. Combining the P-Controller with the D-Controller can help solve the overshooting problem.
+
+The D-Controller reacts to fast changing input signals. The higher the derivative of the input signal the higher the output of the D-Controller. 
+
+The I-Controller outputs the integral of the error. This is useful to take systemic bias into account. The figure below quoted from Udacity.
+
+![png](img/pid.png)
+
+## Fine tune hyperparameters 
+The parameters were chosen manually and iteratively after trial and error driving. I started with the recommended parameters presented along Udacity PID class, which worked fairly well, and then improved upon that.
+
+My final parameters for steering were Kp=0.2, Kd=1.5 and Ki=0.0001. My impression was that systemic bias in the simulator is really low, since I did not observe noticeable changes in the results when setting Ki to zero.
+
+
 ## Dependencies
 
 * cmake >= 3.5
